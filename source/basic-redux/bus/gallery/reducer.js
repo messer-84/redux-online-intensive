@@ -6,7 +6,7 @@ import photo4 from '../../../theme/assets/photos/4.jpeg';
 
 // Types
 
-import { SHOW_PREV_PHOTO, SHOW_NEXT_PHOTO, SHOW_SELECTED_PHOTO } from "./types";
+import { SHOW_PREV_PHOTO, SHOW_NEXT_PHOTO, SHOW_SELECTED_PHOTO } from './types';
 
 const initialState = {
     photos:             [
