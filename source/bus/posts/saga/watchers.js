@@ -2,7 +2,7 @@
 import { takeEvery, all, call } from 'redux-saga/effects';
 
 // Types
-import { types } from "../types";
+import { types } from '../types';
 
 // Workers
 import { createPost, fillPosts } from './workers';
