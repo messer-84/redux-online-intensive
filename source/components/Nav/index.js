@@ -1,6 +1,7 @@
 // Core
 import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
 
 // Instruments
@@ -8,16 +9,22 @@ import Styles from './styles.m.css';
 import { book } from '../../navigation/book';
 import { mockedProfile } from '../../instruments/mockedData';
 
-@withRouter
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated: state.auth.get('isAuthenticated'),
+    };
+};
+
+@connect(mapStateToProps)
 export default class Nav extends Component {
     static defaultProps = {
         // State
         profile:         mockedProfile,
-        isAuthenticated: true,
         isOnline:        false,
 
         // Actions
-        logoutAsync: () => {},
+        logoutAsync: () => {
+        },
     };
 
     _getNav = () => {
@@ -26,29 +33,29 @@ export default class Nav extends Component {
         return isAuthenticated ?
             <>
                 <div>
-                    <NavLink activeClassName = { Styles.active } to = { book.profile }>
-                        <img src = { profile.get('avatar') } />
+                    <NavLink activeClassName={Styles.active} to={book.profile}>
+                        <img src={profile.get('avatar')}/>
                         {profile.get('firstName')}
                     </NavLink>
-                    <NavLink activeClassName = { Styles.active } to = { book.feed }>
+                    <NavLink activeClassName={Styles.active} to={book.feed}>
                         Стена
                     </NavLink>
                 </div>
-                <button onClick = { this._logout }>Выйти</button>
+                <button onClick={this._logout}>Выйти</button>
             </>
             :
             <>
                 <div>
-                    <NavLink activeClassName = { Styles.active } to = { book.login }>
+                    <NavLink activeClassName={Styles.active} to={book.login}>
                         Войти
                     </NavLink>
-                    <NavLink activeClassName = { Styles.active } to = { book.signUp }>
+                    <NavLink activeClassName={Styles.active} to={book.signUp}>
                         Создать аккаунт
                     </NavLink>
                 </div>
-                <button className = { Styles.hidden }>Выйти</button>
+                <button className={Styles.hidden}>Выйти</button>
             </>
-        ;
+            ;
     };
 
     _logout = () => {
@@ -65,10 +72,10 @@ export default class Nav extends Component {
         });
 
         return (
-            <section className = { Styles.navigation }>
-                <div className = { statusStyle }>
+            <section className={Styles.navigation}>
+                <div className={statusStyle}>
                     <div>{isOnline ? 'Онлайн' : 'Офлайн'}</div>
-                    <span />
+                    <span/>
                 </div>
                 {navigation}
             </section>
