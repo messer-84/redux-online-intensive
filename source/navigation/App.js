@@ -18,16 +18,22 @@ const mapStateToProps = (state) => {
 
 @hot(module)
 @withRouter
-@connect()
+@connect(mapStateToProps)
 export default class App extends Component {
     render () {
-        return (
+        const { isAuthenticated } = this.props;
+
+        return isAuthenticated ? (
             <Switch>
-                <Route component = { Login } path = { book.login } />
-                <Route component = { Signup } path = { book.signUp } />
                 <Route component = { Feed } path = { book.feed } />
                 <Route component = { Profile } path = { book.profile } />
                 <Route component = { NewPassword } path = { book.newPassword } />
+                <Redirect to = { book.feed } />
+            </Switch>
+        ) : (
+            <Switch>
+                <Route component = { Login } path = { book.login } />
+                <Route component = { Signup } path = { book.signUp } />
                 <Redirect to = { book.login } />
             </Switch>
         );

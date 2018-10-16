@@ -2,9 +2,9 @@
 import { put, apply } from 'redux-saga/effects';
 
 // Instruments
-import { api } from "../../../../REST";
-import { postsActions } from "../../actions";
-import { uiActions } from "../../../ui/actions";
+import { api } from '../../../../REST';
+import { postsActions } from '../../actions';
+import { uiActions } from '../../../ui/actions';
 
 export function* createPost ({ payload: comment }) {
     try {
@@ -19,7 +19,7 @@ export function* createPost ({ payload: comment }) {
         yield put(postsActions.createPost(post));
 
     } catch (error) {
-        yield put(uiActions.emitError(error, 'worker worker'));
+        yield put(uiActions.emitError(error, 'signup signup'));
     } finally {
         yield put(uiActions.stopFetching());
     }

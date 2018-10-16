@@ -2,8 +2,8 @@
 import { put, apply } from 'redux-saga/effects';
 
 // Instruments
-import { api } from "../../../../REST";
-import { uiActions } from "../../../ui/actions";
+import { api } from '../../../../REST';
+import { uiActions } from '../../../ui/actions';
 
 export function* worker () {
     try {
