@@ -19,7 +19,7 @@ export function* fillPosts () {
         yield put(postsActions.fillPosts(posts));
 
     } catch (error) {
-        yield put(uiActions.emitError(error, 'signup signup'));
+        yield put(uiActions.emitError(error, 'fill posts worker'));
     } finally {
         yield put(uiActions.stopFetching());
     }

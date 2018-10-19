@@ -16,8 +16,6 @@ export const authActions = {
         };
     },
     loginAsync: (credentials) => {
-        console.log('actions login-async', credentials);
-
         return {
             type:    types.LOGIN_ASYNC,
             payload: credentials,
