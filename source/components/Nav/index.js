@@ -9,7 +9,7 @@ import Styles from './styles.m.css';
 import { book } from '../../navigation/book';
 
 // Actions
-import { authActions } from "../../bus/auth/actions";
+import { authActions } from '../../bus/auth/actions';
 
 const mapStateToProps = (state) => {
     return {

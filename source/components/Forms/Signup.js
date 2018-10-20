@@ -24,8 +24,6 @@ const mapDispatchToProps = {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SignupForm extends Component {
     _submitSignupForm = (user) => {
-        console.log('sumbit', user);
-
         this.props.signupAsync(user);
     };
 

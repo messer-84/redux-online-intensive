@@ -9,7 +9,7 @@ import Private from './Private';
 import Public from './Public';
 
 // Actions
-import { authActions } from "../bus/auth/actions";
+import { authActions } from '../bus/auth/actions';
 
 // Components
 import { Loading } from '../components';

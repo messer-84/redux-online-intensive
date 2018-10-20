@@ -15,7 +15,12 @@ export const postsActions = {
             payload: comment,
         };
     },
-
+    removePost: (id) => {
+        return {
+            type:    types.DELETE_POST,
+            payload: id,
+        };
+    },
     clearPosts: () => {
         return {
             type: types.CLEAR_POSTS,
@@ -32,6 +37,12 @@ export const postsActions = {
         return {
             type:    types.CREATE_POST_ASYNC,
             payload: comment,
+        };
+    },
+    removePostAsync: (id) => {
+        return {
+            type:    types.DELETE_POST_ASYNC,
+            payload: id,
         };
     },
 };

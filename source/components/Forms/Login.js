@@ -24,8 +24,6 @@ const mapDispatchToProps = {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class LoginForm extends Component {
     _submitLoginForm = (credentials) => {
-        console.log('submin-login', credentials);
-
         this.props.loginAsync(credentials);
     };
 

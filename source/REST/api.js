@@ -5,14 +5,14 @@ export const api = {
     get token () {
         return localStorage.getItem('token');
     },
-    auth:  {
+    auth: {
         signup (userInfo) {
             return fetch(`${MAIN_URL}/user/${groupId}`, {
                 method:  'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body:    JSON.stringify(userInfo),
+                body: JSON.stringify(userInfo),
             });
         },
         login (credentials) {
@@ -21,7 +21,7 @@ export const api = {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body:    JSON.stringify(credentials),
+                body: JSON.stringify(credentials),
             });
         },
         authenticate () {
@@ -30,7 +30,7 @@ export const api = {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body:    JSON.stringify({ token: this.token }),
+                body: JSON.stringify({ token: this.token }),
             });
         },
         logout () {
@@ -58,7 +58,15 @@ export const api = {
                     Authorization:  this.token,
                     'Content-Type': 'application/json',
                 },
-                body:    JSON.stringify({ comment }),
+                body: JSON.stringify({ comment }),
+            });
+        },
+        remove (postId) {
+            return fetch(`${MAIN_URL}/feed/${postId}`, {
+                method:  'DELETE',
+                headers: {
+                    Authorization: this.token,
+                },
             });
         },
     },
