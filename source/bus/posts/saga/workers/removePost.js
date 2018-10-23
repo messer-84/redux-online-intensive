@@ -20,7 +20,8 @@ export function* removePost ({ payload: postId }) {
         yield put(postsActions.removePost(postId));
 
     } catch (error) {
-        yield put(uiActions.emitError(error, 'remove post worker'));
+        yield put(uiActions.emitError(error, `remove post: ${error.message}`));
+
     } finally {
         yield put(uiActions.stopFetching());
     }

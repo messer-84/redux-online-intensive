@@ -28,7 +28,7 @@ export function* login ({ payload: credentials }) {
         yield put(authActions.authenticate());
 
     } catch (error) {
-        yield put(uiActions.emitError(error, 'login worker'));
+        yield put(uiActions.emitError(error, `login: ${error.message}`));
     } finally {
         yield put(uiActions.stopFetching());
     }

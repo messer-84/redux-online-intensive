@@ -30,7 +30,8 @@ export function* authenticate () {
         yield put(authActions.authenticate());
 
     } catch (error) {
-        yield put(uiActions.emitError(error, 'authenticate worker'));
+        yield put(uiActions.emitError(error, `authenticate: ${error.message}`));
+
     } finally {
         yield put(uiActions.stopFetching());
         yield put(authActions.initialize());
