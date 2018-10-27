@@ -10,10 +10,10 @@ import Public from './Public';
 
 // Actions
 import { authActions } from '../bus/auth/actions';
-import { socketActions } from "../bus/socket/actions";
+import { socketActions } from '../bus/socket/actions';
 
 // WebSocket
-import { socket, joinSocketChannel } from "../init/socket";
+import { socket, joinSocketChannel } from '../init/socket';
 
 // Components
 import { Loading } from '../components';
