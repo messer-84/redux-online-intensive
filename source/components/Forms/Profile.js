@@ -1,5 +1,6 @@
 // Core
 import React, { Component } from 'react';
+import connect from 'react-redux/es/connect/connect';
 import { Link } from 'react-router-dom';
 import { Form, Control } from 'react-redux-form';
 import cx from 'classnames';
@@ -13,17 +14,23 @@ import { book } from '../../navigation/book';
 // Components
 import { Input } from '../../components';
 
-export default class Profile extends Component {
-    static defaultProps = {
-        // State
-        isFetching: false,
-        profile:    Map(),
+// Actions
+import { profileActions } from '../../bus/profile/actions';
 
-        // Actions
-        updateNameAsync:   () => {},
-        updateAvatarAsync: () => {},
+const mapStateToProps = (state) => {
+    return {
+        isFetching: state.ui.get('isFetching'),
+        profile:    state.profile,
     };
+};
 
+const mapDispatchToProps = profileActions;
+
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+export default class Profile extends Component {
     _submitUserInfo = (userInfo) => {
         const { updateNameAsync, updateAvatarAsync } = this.props;
 
@@ -47,7 +54,9 @@ export default class Profile extends Component {
         const buttonMessage = isFetching ? 'Загрузка...' : 'Обновить профиль';
 
         return (
-            <Form className = { Styles.form } model = 'forms.user.profile' onSubmit = { this._submitUserInfo }>
+            <Form
+                className = { Styles.form } model = 'forms.user.profile'
+                onSubmit = { this._submitUserInfo }>
                 <div className = { Styles.wrapper }>
                     <div>
                         <h1>Привет, {profile.get('firstName')}</h1>
