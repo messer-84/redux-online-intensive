@@ -21,6 +21,10 @@ const credentials = {
     remember: true,
 };
 
+const users = [{ ...userProfile }, { ...userProfile },{ ...userProfile }];
+
+console.log('test', users);
+
 const responseDataSuccess = {
     data:    userProfile,
     message: successMesasge,
@@ -59,6 +63,7 @@ global.__ = {
     fetchResponseFail400,
     credentials,
     url,
+    users,
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();

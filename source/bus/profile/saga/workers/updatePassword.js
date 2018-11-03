@@ -18,7 +18,7 @@ export function* updatePassword ({ payload: { oldPassword, newPassword }}) {
         }
         yield put(profileActions.fillProfile(updatedProfile));
     } catch (error) {
-        yield put(uiActions.emitError(error, `updateName: ${error.message}`));
+        yield put(uiActions.emitError(error, `updatePassword: ${error.message}`));
     } finally {
         yield put(uiActions.stopFetching());
     }
