@@ -1,5 +1,5 @@
 // Actions
-import { authActions } from "../actions";
+import { authActions } from '../actions';
 
 // Types
 import { types } from '../types';

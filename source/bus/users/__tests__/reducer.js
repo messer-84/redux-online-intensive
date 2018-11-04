@@ -2,10 +2,10 @@
 import { fromJS, List } from 'immutable';
 
 // Reducer
-import { usersReducer } from "../reducer";
+import { usersReducer } from '../reducer';
 
 // Actions
-import { usersActions } from "../actions";
+import { usersActions } from '../actions';
 
 const initialState = List();
 
