@@ -1,11 +1,11 @@
 // Reducer
-import { profileReducer } from "../reducer";
+import { profileReducer } from '../reducer';
 
 // Actions
-import { profileActions } from "../actions";
+import { profileActions } from '../actions';
 
-describe("profile reducer", () => {
-  test("should return initial state by default", () => {
+describe('profile reducer', () => {
+  test('should return initial state by default', () => {
     expect(profileReducer(void 0, {})).toMatchInlineSnapshot(`
 Immutable.Map {
   "id": "",
@@ -16,7 +16,7 @@ Immutable.Map {
 }
 `);
   });
-  test("should handle FILL_PROFILE action", () => {
+  test('should handle FILL_PROFILE action', () => {
     expect(profileReducer(void 0, profileActions.fillProfile(__.userProfile)))
       .toMatchInlineSnapshot(`
 Immutable.Map {
@@ -28,7 +28,7 @@ Immutable.Map {
 }
 `);
   });
-  test("should handle UPDATE_AVATAR action", () => {
+  test('should handle UPDATE_AVATAR action', () => {
     expect(profileReducer(void 0, profileActions.updateAvatar(__.url)))
       .toMatchInlineSnapshot(`
 Immutable.Map {
@@ -41,7 +41,7 @@ Immutable.Map {
 `);
   });
 
-  test("should handle CLEAR_PROFILE action", () => {
+  test('should handle CLEAR_PROFILE action', () => {
     expect(
       profileReducer(void 0, profileActions.clearProfile())
     ).toMatchInlineSnapshot(`Immutable.Map {}`);

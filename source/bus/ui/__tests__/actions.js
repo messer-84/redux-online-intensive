@@ -1,5 +1,5 @@
 // Actions
-import { uiActions } from "../actions";
+import { uiActions } from '../actions';
 
 describe('ui actions:', () => {
     test('startFetching', () => {
