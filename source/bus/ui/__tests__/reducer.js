@@ -1,8 +1,8 @@
 // Reducer
-import { uiReducer } from "../reducer";
+import { uiReducer } from '../reducer';
 
 // Actions
-import { uiActions } from "../actions";
+import { uiActions } from '../actions';
 
 describe("ui reducer", () => {
   test("should return initial state by default", () => {
